@@ -342,4 +342,31 @@ describe('Util', function () {
             expect(result).toBe(false);
         });
     });
+
+    describe('key', function () {
+        it('should return the key from the event', function () {
+            var event;
+
+            event = {
+                which: 13,
+                keyCode: null,
+                charCode: null
+            };
+            expect(Util.key(event)).toBe(13);
+
+            event = {
+                which: null,
+                keyCode: 13,
+                charCode: null
+            };
+            expect(Util.key(event)).toBe(13);
+
+            event = {
+                which: null,
+                keyCode: null,
+                charCode: 13
+            };
+            expect(Util.key(event)).toBe(13);
+        });
+    });
 });

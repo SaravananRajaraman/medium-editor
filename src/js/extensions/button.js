@@ -55,13 +55,13 @@ var Button;
             button.innerHTML = content;
             return button;
         },
-        handleKeydown: function (evt) {
-            var key = String.fromCharCode(evt.which || evt.keyCode).toLowerCase(),
+        handleKeydown: function (event) {
+            var key = String.fromCharCode(Util.key(event)).toLowerCase(),
                 action;
 
-            if (this.key === key && Util.isMetaCtrlKey(evt)) {
-                evt.preventDefault();
-                evt.stopPropagation();
+            if (this.key === key && Util.isMetaCtrlKey(event)) {
+                event.preventDefault();
+                event.stopPropagation();
 
                 action = this.getAction();
                 if (action) {
@@ -69,9 +69,9 @@ var Button;
                 }
             }
         },
-        handleClick: function (evt) {
-            evt.preventDefault();
-            evt.stopPropagation();
+        handleClick: function (event) {
+            event.preventDefault();
+            event.stopPropagation();
 
             var action = this.getAction();
 

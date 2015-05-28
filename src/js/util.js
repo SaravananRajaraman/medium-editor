@@ -80,6 +80,20 @@ var Util;
             return false;
         },
 
+        /**
+         * Returns the key associated to the event
+         *
+         * @see : https://github.com/jquery/jquery/blob/0705be475092aede1eddae01319ec931fb9c65fc/src/event.js#L473-L484
+         * @see : http://stackoverflow.com/q/4471582/569101
+         */
+        key: function (event) {
+            if (null === event.which) {
+                event.which = event.charCode !== null ? event.charCode : event.keyCode;
+            }
+
+            return event.which;
+        },
+
         parentElements: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'pre'],
 
         extend: function extend(/* dest, source1, source2, ...*/) {

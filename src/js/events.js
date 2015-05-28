@@ -501,7 +501,7 @@ var Events;
         handleKeydown: function (event) {
             this.triggerCustomEvent('editableKeydown', event, event.currentTarget);
 
-            switch (event.which) {
+            switch (Util.key(event)) {
                 case Util.keyCode.ENTER:
                     this.triggerCustomEvent('editableKeydownEnter', event, event.currentTarget);
                     break;

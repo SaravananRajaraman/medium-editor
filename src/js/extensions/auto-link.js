@@ -47,10 +47,8 @@ LINK_REGEXP_TEXT =
                 return;
             }
 
-            if (keyPressEvent.keyCode === Util.keyCode.SPACE ||
-                keyPressEvent.keyCode === Util.keyCode.ENTER ||
-                keyPressEvent.which === Util.keyCode.SPACE ||
-                keyPressEvent.which === Util.keyCode.ENTER) {
+            if (Util.key(keyPressEvent) === Util.keyCode.SPACE ||
+                Util.key(keyPressEvent) === Util.keyCode.ENTER) {
                 clearTimeout(this.performLinkingTimeout);
                 // Saving/restoring the selection in the middle of a keypress doesn't work well...
                 this.performLinkingTimeout = setTimeout(function () {
